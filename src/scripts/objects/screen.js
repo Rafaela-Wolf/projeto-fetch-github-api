@@ -9,7 +9,7 @@ const screen = {
                                         </div>
                                      </div>`
         
-        let repositoriesItems = ''
+        let repositoriesItems = '';
         user.repositories.forEach(repo => repositoriesItems +=  `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`)
 
         if(user.repositories.length > 0) {
@@ -19,6 +19,9 @@ const screen = {
             </div>`
         }
 
+    },
+    renderNotFound() {
+        this.userProfile.innerHTML = `<h3>Usuário não encontrado</h3>`
     }
 }
 
