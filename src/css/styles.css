@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700;800&display=swap");
 
 * {
   margin: 0;
@@ -98,24 +98,30 @@ main {
   align-items: center;
 }
 
-.container .profile-data .info .data{
-  padding: 40px;
-  width: 50%;
-}
-
 .container .profile-data .info img{
   width: 50%;
   border-radius: 50%;
   border: 10px solid hotpink;
 }
 
-.container .profile-data .info h1{
+.container .profile-data .info .data{
+  padding: 40px;
+  width: 50%;
+}
+
+.container .profile-data .info .data h1{
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.container .profile-data .info .data h2{
+  font-size: 15px;
+  margin-bottom: 10px;
   font-weight: 700;
 }
 
-.container .profile-data .info p{
+.container .profile-data .info .data p{
   font-size: 15px;  
   font-weight: 400;
   line-height: 23px;

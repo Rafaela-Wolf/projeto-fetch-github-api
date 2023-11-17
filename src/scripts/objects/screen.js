@@ -3,9 +3,11 @@ const screen = {
     renderUser(user) {
         this.userProfile.innerHTML = `<div class="info">
                                             <img src="${user.avatarUrl}" alt="Foto de perfil do usuário" />
-                                        <div class="data"
+                                        <div class="data">
                                             <h1>${user.name ?? 'Não possui nome cadastrado'}</h1>
-                                            <p>${user.bio ?? 'Não possui bio cadastrada'}</p>
+                                            <h2>${user.bio ?? 'Não possui bio cadastrada'}</h2>
+                                            <p>${user.followers} followers</p>
+                                            <p>${user.following} following</p>
                                         </div>
                                      </div>`
         
