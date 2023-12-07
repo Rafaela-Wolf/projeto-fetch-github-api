@@ -6,6 +6,10 @@ const user = {
     repositories: [],
     followers: [],
     following: [],
+    forks: [],
+    stars: [],
+    subscribers: [],
+    langugae: '',
     events: [],
     setInfo(gitHubUser) {
         this.avatarUrl = gitHubUser.avatar_url
@@ -19,11 +23,11 @@ const user = {
         this.repositories = repositories
         this.forks = repositories.forks_count
         this.stars = repositories.stargazers_count
-        this.subscribers = repositories.subscribers_count
+        this.subscribers = repositories.subscribers_count // Segundo a nova documentação da API GitHub esse é o nome dado aos watchers
         this.language = repositories.language
     },
     setEvents(events) {
-        this.events = events.ref
+        this.events = events
     }
 }
 

@@ -47,6 +47,7 @@ async function getUserData(userName) {
 
     const eventsResponse = await getEvents(userName)
     user.setEvents(eventsResponse)
+    console.log('Events set successfully:', eventsResponse);
     
     screen.renderUser(user)
 }
