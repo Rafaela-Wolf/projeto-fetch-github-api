@@ -33,10 +33,10 @@ const screen = {
 
         let eventsItems = '';
         user.events
+            .filter(event => event.type === 'PushEvent' || event.type === 'CreateEvent')
             .forEach(event => eventsItems +=  `<li class="event-repo-name">${event.repo.name}
                                                             <p class="commit-message">- ${event.payload.commits ? event.payload.commits[0].message : "No commit message"}</p>
                                                         </li>`)
-            .filter(event => event.type === 'PushEvent' || event.type === 'CreateEvent')
 
         if(user.events.length > 0) {
             this.userProfile.innerHTML += `<div class="events">
