@@ -1,8 +1,19 @@
 import { baseUrl, eventsQuantity } from '/src/scripts/variables.js'
 
-async function getEvents(userName) {
-    const response = await fetch(`${baseUrl}/${userName}/events?per_page=${eventsQuantity}`)
-    return await response.json()
+async function getUserEvents(userName) {
+    const url = `${baseUrl}/${userName}/events?per_page=${eventsQuantity}`
+    const response = await fetch(url)
+    const events = await response.json()
+
+    if(events.message === "Not Found") {
+        return
+    }
+
+    const filteredEvents = events.filter(event => {
+        return event.type === "PushEvent" || event.type === "CreateEvent";
+    });
+
+    return filteredEvents.slice(0, eventsQuantity)
 }
 
-export { getEvents }
+export { getUserEvents }

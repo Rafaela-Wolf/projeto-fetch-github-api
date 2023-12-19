@@ -16,33 +16,32 @@ const screen = {
                                                                         <a href="${repo.html_url}" target="_blank">${repo.name}</a>
                                                                     </li>
                                                                     <li>
-                                                                        <p>🍴 ${repo.forks_count}</p> 
-                                                                        <p>⭐ ${repo.stargazers_count}</p> 
-                                                                        <p>👀 ${repo.subscribers_count}</p> 
-                                                                        <p>👩🏽‍💻 ${repo.language}</p>
+                                                                        <p>🍴 ${repo.forks_count ?? 'No forks'}</p> 
+                                                                        <p>⭐ ${repo.stargazers_count ?? 'No stars'}</p> 
+                                                                        <p>👀 ${repo.subscribers_count ?? 'No watchers'}</p> 
+                                                                        <p>👩🏽‍💻 ${repo.language ?? 'No specific programming language'}</p>
                                                                     </li>
                                                                 </ul>`)
 
 
         if(user.repositories.length > 0) {
             this.userProfile.innerHTML += `<div class="repositories section">
-                <h2>Repositórios</h2>
-                <ul class="lista-geral">${repositoriesItems}</ul>
-            </div>`
+                                                <h2>Repositórios</h2>
+                                                <ul class="lista-geral">${repositoriesItems}</ul>
+                                            </div>`
         }
 
         let eventsItems = '';
         user.events
-            .filter(event => event.type === 'PushEvent' || event.type === 'CreateEvent')
             .forEach(event => eventsItems +=  `<li class="event-repo-name">${event.repo.name}
-                                                            <p class="commit-message">- ${event.payload.commits ? event.payload.commits[0].message : "No commit message"}</p>
-                                                        </li>`)
+                                                    <p class="commit-message">- ${event.payload.commits ? event.payload.commits[0].message : "No commit message"}</p>
+                                                </li>`)
 
         if(user.events.length > 0) {
             this.userProfile.innerHTML += `<div class="events">
-                <h2>Eventos</h2>
-                <ul>${eventsItems}</ul>
-            </div>`
+                                                <h2>Eventos</h2>
+                                                <ul>${eventsItems}</ul>
+                                            </div>`
         }
     },
     renderNotFound() {
